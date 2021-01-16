@@ -29,11 +29,19 @@ export const sub = (value) => {
         value:value
     }
 }
- 
-export const storeValue = (result) => {
+
+export const saveResult = (res) =>{
     return {
         type: STORE_VALUE,
-        result:result
+        result:res
+    }
+}
+ 
+export const storeValue = (result) => {   
+    return dispatch => {
+        setTimeout( ()=>{
+            dispatch(saveResult(result))
+        },2000);
     }
 }
  
